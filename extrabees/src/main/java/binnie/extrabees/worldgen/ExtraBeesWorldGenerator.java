@@ -32,7 +32,7 @@ public class ExtraBeesWorldGenerator implements IWorldGenerator {
 	private void generateHive(WorldGenHive hive, Random rand, int chunkX, int chunkZ, World world) {
 		chunkX <<= 4;
 		chunkZ <<= 4;
-		for (int i = 0; i < hive.getRate(); ++i) {
+		for (int i = 0; i < Math.floor(hive.getRate()); ++i) {
 			final int randPosX = chunkX + rand.nextInt(16);
 			final int randPosY = rand.nextInt(50) + 20;
 			final int randPosZ = chunkZ + rand.nextInt(16);

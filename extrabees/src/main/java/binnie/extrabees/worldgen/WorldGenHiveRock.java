@@ -16,7 +16,7 @@ import binnie.extrabees.blocks.type.EnumHiveType;
 
 public class WorldGenHiveRock extends WorldGenHive {
 
-	public WorldGenHiveRock(int rate) {
+	public WorldGenHiveRock(float rate) {
 		super(rate);
 	}
 

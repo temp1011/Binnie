@@ -4,13 +4,13 @@ package binnie.extrabees.worldgen;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public abstract class WorldGenHive extends WorldGenerator {
-	private final int rate;
+	private final float rate;
 
-	public WorldGenHive(int rate) {
+	public WorldGenHive(float rate) {
 		this.rate = rate;
 	}
 
-	public int getRate() {
+	public float getRate() {
 		return rate;
 	}
 }

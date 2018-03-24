@@ -15,7 +15,7 @@ import java.util.Random;
 
 public class WorldGenHiveNether extends WorldGenHive {
 
-	public WorldGenHiveNether(int rate) {
+	public WorldGenHiveNether(float rate) {
 		super(rate);
 	}
 

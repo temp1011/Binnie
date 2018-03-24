@@ -19,7 +19,7 @@ import binnie.extrabees.blocks.type.EnumHiveType;
 public class WorldGenHiveMarble extends WorldGenHive {
 	private final Set<Block> validBlocks = new HashSet<>();
 
-	public WorldGenHiveMarble(int rate) {
+	public WorldGenHiveMarble(float rate) {
 		super(rate);
 		//TODO config option / more ore names
 		OreDictionary.getOres("stoneMarble").stream().filter(s -> s.getItem() instanceof ItemBlock).map(s -> ((ItemBlock) s.getItem()).getBlock()).forEach(validBlocks::add);

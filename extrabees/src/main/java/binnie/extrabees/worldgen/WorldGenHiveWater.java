@@ -13,7 +13,7 @@ import binnie.extrabees.blocks.type.EnumHiveType;
 
 public class WorldGenHiveWater extends WorldGenHive {
 
-	public WorldGenHiveWater(int rate) {
+	public WorldGenHiveWater(float rate) {
 		super(rate);
 	}
 
