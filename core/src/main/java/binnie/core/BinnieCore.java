@@ -47,7 +47,6 @@ import binnie.core.machines.errors.ErrorStateRegistry;
 import binnie.core.machines.storage.ModuleStorage;
 import binnie.core.models.ModelManager;
 import binnie.core.modules.ModuleContainer;
-import binnie.core.modules.ModuleManager;
 import binnie.core.network.BinnieCorePacketID;
 import binnie.core.network.BinniePacketHandler;
 import binnie.core.network.IPacketID;

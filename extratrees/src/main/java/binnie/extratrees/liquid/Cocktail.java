@@ -132,14 +132,12 @@ public enum Cocktail {
 
 	private final String name;
 	private final GlasswareType glasswareType;
-	private final int colour;
 	private final Map<ICocktailIngredient, Integer> ingredients;
 
 	Cocktail(final String name, final GlasswareType glasswareType, final int colour) {
 		this.ingredients = new HashMap<>();
 		this.name = name;
 		this.glasswareType = glasswareType;
-		this.colour = colour;
 	}
 
 	@Nullable

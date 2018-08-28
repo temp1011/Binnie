@@ -5,6 +5,7 @@ import forestry.api.apiculture.IAlleleBeeSpecies;
 import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAllele;
 
+// TODO - possible to reference forestry in a better way?
 public class ForestryAllele {
 	public enum Lifespan {
 		Shortest,

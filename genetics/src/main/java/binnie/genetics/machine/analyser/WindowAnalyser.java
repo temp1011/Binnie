@@ -54,7 +54,6 @@ public class WindowAnalyser extends WindowMachine {
 		new ControlIconDisplay(this, x + 76 + 2, y + 18, GUIIcon.ARROW_RIGHT.getIcon().getResourceLocation());
 		x += 96;
 		new ControlSlotArray.Builder(this, x, y, 2, 3).create(Analyser.SLOT_FINISHED);
-		x += 52;
 		new ControlPlayerInventory(this);
 	}
 

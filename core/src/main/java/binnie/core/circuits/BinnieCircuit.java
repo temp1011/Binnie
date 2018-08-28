@@ -11,13 +11,11 @@ import forestry.api.circuits.ICircuitLayout;
 
 public class BinnieCircuit implements ICircuit {
 	private final String uid;
-	private final int limit;
 	private final List<String> tooltips;
 
-	public BinnieCircuit(final String uid, final int limit, final ICircuitLayout layout, final ItemStack itemStack) {
+	public BinnieCircuit(final String uid, final ICircuitLayout layout, final ItemStack itemStack) {
 		this.tooltips = new ArrayList<>();
 		this.uid = "for.binnie.circuit." + uid;
-		this.limit = limit;
 		ChipsetManager.circuitRegistry.registerCircuit(this);
 		if (!itemStack.isEmpty()) {
 			ChipsetManager.solderManager.addRecipe(layout, itemStack, this);

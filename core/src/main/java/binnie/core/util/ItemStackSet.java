@@ -8,6 +8,8 @@ import java.util.Set;
 
 import net.minecraft.item.ItemStack;
 
+
+//TODO - could a normal set be used here? does forestry have a similar data structure?
 public class ItemStackSet implements Set<ItemStack> {
 	protected final List<ItemStack> itemStacks;
 

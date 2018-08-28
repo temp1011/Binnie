@@ -1,5 +1,6 @@
 package binnie.core.triggers;
 
+//TODO - buildcraft?
 class TriggerProvider// implements ITriggerProvider
 {
 	/*static TriggerProvider instance;

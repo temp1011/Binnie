@@ -52,16 +52,10 @@ import binnie.genetics.Genetics;
 public class TreeBreedingSystem extends BreedingSystem implements binnie.genetics.api.ITreeBreedingSystem {
 	private final UniqueItemStackSet allFruits;
 	private final UniqueItemStackSet allWoods;
-	private final UniqueItemStackSet discoveredPlanks;
-	private final UniqueItemStackSet discoveredFruits;
-	private final UniqueItemStackSet discoveredWoods;
 
 	public TreeBreedingSystem() {
 		this.allFruits = new UniqueItemStackSet();
 		this.allWoods = new UniqueItemStackSet();
-		this.discoveredFruits = new UniqueItemStackSet();
-		this.discoveredWoods = new UniqueItemStackSet();
-		this.discoveredPlanks = new UniqueItemStackSet();
 		this.iconUndiscovered = Binnie.RESOURCE.getItemSprite(Genetics.instance, "icon/undiscovered_tree");
 		this.iconDiscovered = Binnie.RESOURCE.getItemSprite(Genetics.instance, "icon/discovered_tree");
 	}
@@ -104,23 +98,7 @@ public class TreeBreedingSystem extends BreedingSystem implements binnie.genetic
 
 	@Override
 	public void onSyncBreedingTracker(final IBreedingTracker tracker) {
-		this.discoveredFruits.clear();
-		this.discoveredWoods.clear();
-		for (final IAlleleSpecies species : this.getDiscoveredSpecies(tracker)) {
-			final IAlleleTreeSpecies tSpecies = (IAlleleTreeSpecies) species;
-			final ITreeGenome genome = (ITreeGenome) this.getSpeciesRoot().templateAsGenome(this.getSpeciesRoot().getTemplate(tSpecies));
 
-			IAlleleTreeSpecies treeSpecies = genome.getPrimary();
-			final ItemStack wood = treeSpecies.getWoodProvider().getWoodStack();
-			if (!wood.isEmpty()) {
-				this.discoveredWoods.add(wood);
-			}
-
-			/*for (final ItemStack wood : tSpecies.getRoot().templateAsIndividual(getSpeciesRoot().getTemplate(tSpecies.getUID())).getProduceList()) {
-				this.discoveredWoods.add(wood);
-			}*/
-			this.discoveredFruits.addAll(genome.getFruitProvider().getProducts().keySet());
-		}
 	}
 
 	@Override

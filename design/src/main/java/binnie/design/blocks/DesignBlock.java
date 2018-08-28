@@ -190,7 +190,7 @@ public class DesignBlock {
 		for (int i = 0; i < this.rotation; ++i) {
 			adjustedFacing = getRotation(adjustedFacing, EnumFacing.DOWN);
 		}
-		ILayout layout = null;
+		ILayout layout;
 		switch (adjustedFacing) {
 			case EAST: {
 				layout = this.getDesign().getEastPattern();
@@ -466,7 +466,7 @@ public class DesignBlock {
 	}
 
 	public String getString() {
-		String type = "";
+		String type;
 		if (this.getPrimaryMaterial() != this.getSecondaryMaterial()) {
 			type = this.getPrimaryMaterial().getDesignMaterialName() + " and " + this.getSecondaryMaterial().getDesignMaterialName();
 		} else {

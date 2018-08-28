@@ -52,7 +52,6 @@ public class PagePlanksOverview extends PageAbstract<ItemStack> {
 			}
 			if (!door.isEmpty()) {
 				new ControlItemDisplay(this, x, 48).setItemStack(door);
-				x += 22;
 			}
 		}
 		final ControlText controlDescription = new ControlText(this, new Area(8, 84, this.getSize().xPos() - 16, 0), "", TextJustification.MIDDLE_CENTER);

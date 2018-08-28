@@ -59,7 +59,6 @@ public class AnalystPageBeeProducts extends Control implements ITitledWidget {
 		y += 20;
 		Collection<ItemStack> refinedProducts = new UniqueItemStackSet();
 		Collection<ItemStack> productList = new UniqueItemStackSet();
-		Collection<ItemStack> specialtyList = new UniqueItemStackSet();
 		Map<ItemStack, Float> products = new HashMap<>();
 		products.putAll(genome.getPrimary().getProductChances());
 		products.putAll(genome.getSecondary().getProductChances());

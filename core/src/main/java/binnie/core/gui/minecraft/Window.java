@@ -33,9 +33,7 @@ import binnie.core.gui.events.EventWidget;
 import binnie.core.gui.geometry.Point;
 import binnie.core.gui.minecraft.control.ControlHelp;
 import binnie.core.gui.minecraft.control.ControlInfo;
-import binnie.core.gui.minecraft.control.ControlPowerSystem;
 import binnie.core.gui.minecraft.control.ControlSlot;
-import binnie.core.gui.minecraft.control.ControlUser;
 import binnie.core.gui.minecraft.control.EnumHighlighting;
 import binnie.core.gui.renderer.RenderUtil;
 import binnie.core.gui.resource.textures.Texture;
@@ -45,7 +43,6 @@ import binnie.core.gui.resource.stylesheet.StyleSheetManager;
 import binnie.core.machines.Machine;
 import binnie.core.machines.inventory.IInventoryMachine;
 import binnie.core.machines.network.INetwork;
-import binnie.core.machines.power.PowerSystem;
 import binnie.core.network.packet.MessageCraftGUI;
 import binnie.core.resource.BinnieResource;
 import binnie.core.resource.IBinnieTexture;
@@ -289,17 +286,11 @@ public abstract class Window extends TopLevelWidget implements INetwork.ReceiveG
 	@Override
 	public void receiveGuiNBTOnClient(EntityPlayer player, String name, NBTTagCompound nbt) {
 		if (name.equals("username")) {
-			final int w = this.getWidth();
-			final int titleButtonRight = this.titleButtonRight + 16;
-			this.titleButtonRight = titleButtonRight;
-			final ControlUser controlUser = new ControlUser(this, w - titleButtonRight, 8, nbt.getString("username"));
+			this.titleButtonRight = this.titleButtonRight + 16;
 			this.titleButtonRight += 6;
 		}
 		if (name.equals("power-system")) {
-			final int w2 = this.getWidth();
-			final int titleButtonRight2 = this.titleButtonRight + 16;
-			this.titleButtonRight = titleButtonRight2;
-			final ControlPowerSystem controlPowerSystem = new ControlPowerSystem(this, w2 - titleButtonRight2, 8, PowerSystem.get(nbt.getByte("system")));
+			this.titleButtonRight = this.titleButtonRight + 16;
 			this.titleButtonRight += 6;
 		}
 	}

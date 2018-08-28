@@ -13,7 +13,6 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import forestry.api.arboriculture.EnumTreeChromosome;
 import forestry.api.genetics.IAlleleSpecies;
 import forestry.api.genetics.IIndividual;
 
@@ -49,21 +48,9 @@ public class AnalystPageDatabase extends Control implements ITitledWidget {
 		new SpeciesSearch(this, y, system);
 		y += 22;
 		new Panel(this, 3, y - 1, getWidth() - 6, getHeight() - y - 8 + 2, MinecraftGUI.PanelType.TAB_OUTLINE).setColor(getColor());
-		boolean textView = false;
 		Collection<IAlleleSpecies> options = getSpecies(system);
-		for (IAlleleSpecies species : options) {
-			String height = system.getAlleleName(EnumTreeChromosome.HEIGHT, system.getIndividual(species.getUID()).getGenome().getActiveAllele(EnumTreeChromosome.HEIGHT));
-			String fertility = system.getAlleleName(EnumTreeChromosome.FERTILITY, system.getIndividual(species.getUID()).getGenome().getActiveAllele(EnumTreeChromosome.FERTILITY));
-			String yield = system.getAlleleName(EnumTreeChromosome.YIELD, system.getIndividual(species.getUID()).getGenome().getActiveAllele(EnumTreeChromosome.YIELD));
-			String sappiness = system.getAlleleName(EnumTreeChromosome.SAPPINESS, system.getIndividual(species.getUID()).getGenome().getActiveAllele(EnumTreeChromosome.SAPPINESS));
-			String maturation = system.getAlleleName(EnumTreeChromosome.MATURATION, system.getIndividual(species.getUID()).getGenome().getActiveAllele(EnumTreeChromosome.MATURATION));
-		}
-		if (textView) {
-			scroll = new Scroll(this, y, options);
-		} else {
-			scroll = new ControlScrollableContent(this, 4, y, getWidth() - 8, getHeight() - y - 8, 0);
-			scroll.setScrollableContent(getItemScrollList(system, options));
-		}
+		scroll = new ControlScrollableContent(this, 4, y, getWidth() - 8, getHeight() - y - 8, 0);
+		scroll.setScrollableContent(getItemScrollList(system, options));
 		new DatabaseScrollBar(this);
 	}
 
@@ -105,12 +92,10 @@ public class AnalystPageDatabase extends Control implements ITitledWidget {
 		}
 
 		private static class ScrollOption extends Control {
-			private final IAlleleSpecies v;
 			private final IAlleleSpecies value;
 
 			public ScrollOption(Scroll scroll, int y, IAlleleSpecies v) {
 				super(scroll.getContent(), 0, y, scroll.getWidth(), 12);
-				this.v = v;
 				value = v;
 			}
 
@@ -176,14 +161,10 @@ public class AnalystPageDatabase extends Control implements ITitledWidget {
 	}
 
 	private static class ItemScrollList extends Control {
-		private final Collection<IAlleleSpecies> options;
-		private final IBreedingSystem system;
 		private final AnalystPageDatabase analystPageDatabase;
 
 		public ItemScrollList(final AnalystPageDatabase analystPageDatabase, Collection<IAlleleSpecies> options, IBreedingSystem system) {
 			super(analystPageDatabase.scroll, 0, 0, analystPageDatabase.scroll.getWidth(), analystPageDatabase.scroll.getHeight());
-			this.options = options;
-			this.system = system;
 			this.analystPageDatabase = analystPageDatabase;
 
 			int maxBiomePerLine = (getWidth() - 4 + 2) / 18;
@@ -203,13 +184,11 @@ public class AnalystPageDatabase extends Control implements ITitledWidget {
 		}
 
 		private static class SpeciesIndividualDisplay extends ControlIndividualDisplay {
-			private final IIndividual ind;
 			private final IAlleleSpecies species;
 			private final ItemScrollList itemScrollList;
 
 			public SpeciesIndividualDisplay(ItemScrollList itemScrollList, int biomeListX, int dx, int dy, IIndividual ind, IAlleleSpecies species) {
 				super(itemScrollList, biomeListX + dx, 2 + dy, ind);
-				this.ind = ind;
 				this.species = species;
 				this.itemScrollList = itemScrollList;
 

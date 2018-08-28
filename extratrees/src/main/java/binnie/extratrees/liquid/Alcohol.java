@@ -132,12 +132,10 @@ public enum Alcohol implements IFluidDefinition, ICocktailIngredientProvider {
 
 	private final List<String> fermentationLiquid;
 	private final FluidType type;
-	private String fermentationSolid;
 	private final CocktailLiquid cocktailLiquid;
 
 	Alcohol(final String ident, final int color, final double transparency, float abv) {
 		this.fermentationLiquid = new ArrayList<>();
-		this.fermentationSolid = "";
 		init();
 		type = new FluidType(ident, String.format("%s.fluid.%s.%s", ExtraTrees.instance.getModId(), "Alcohol", this.name()), color)
 			.setTransparency(transparency)
@@ -169,7 +167,6 @@ public enum Alcohol implements IFluidDefinition, ICocktailIngredientProvider {
 	}
 
 	protected void addFementation(final String oreDict) {
-		this.fermentationSolid = oreDict;
 	}
 
 	@Override

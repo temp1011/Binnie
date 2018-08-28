@@ -9,8 +9,6 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import forestry.api.genetics.IAlleleSpecies;
-
 import binnie.botany.api.genetics.IFlower;
 import binnie.botany.api.genetics.IFlowerGenome;
 import binnie.botany.api.genetics.IFlowerType;
@@ -31,7 +29,6 @@ public class AnalystPageAppearance extends Control implements ITitledWidget {
 		setColor(3355443);
 		int y = 4;
 		IFlowerGenome genome = flower.getGenome();
-		IAlleleSpecies species = genome.getPrimary();
 		new ControlTextCentered(this, y, TextFormatting.UNDERLINE + getTitle()).setColor(getColor());
 		y += 12;
 		ControlColorDisplay a = new ControlColorDisplay(this, getWidth() / 2 - 28, y, genome.getPrimaryColor());

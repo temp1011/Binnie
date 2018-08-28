@@ -40,8 +40,8 @@ import binnie.botany.core.BotanyCore;
 import binnie.core.modules.BotanyModuleUIDs;
 import binnie.botany.modules.ModuleFlowers;
 import binnie.botany.modules.ModuleGardening;
+import binnie.core.modules.ModuleHelper;
 import binnie.core.util.I18N;
-import binnie.core.modules.ModuleManager;
 
 public class BlockSoil extends Block implements IBlockSoil, IItemModelRegister {
 	public static final PropertyEnum<EnumMoisture> MOISTURE = PropertyEnum.create("moisture", EnumMoisture.class);
@@ -310,7 +310,7 @@ public class BlockSoil extends Block implements IBlockSoil, IItemModelRegister {
 	@Override
 	public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, IPlantable plantable) {
 		IBlockState plant = plantable.getPlant(world, pos.up());
-		if(ModuleManager.isModuleEnabled(Constants.BOTANY_MOD_ID, BotanyModuleUIDs.FLOWERS)) {
+		if(ModuleHelper.isModuleEnabled(Constants.BOTANY_MOD_ID, BotanyModuleUIDs.FLOWERS)) {
 			if (plant.getBlock() == ModuleFlowers.flower) {
 				return true;
 			}

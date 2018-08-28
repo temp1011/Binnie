@@ -45,9 +45,8 @@ public class ControlPunnett extends Control {
 		IAllele secondary1 = ind1.getGenome().getInactiveAllele(chromosome);
 		IAllele secondary2 = ind2.getGenome().getInactiveAllele(chromosome);
 		int x = 1;
-		int y = 1;
 		for (IAllele allele1 : new IAllele[]{primary1, secondary1}) {
-			y = 1;
+			int y = 1;
 			for (IAllele allele2 : new IAllele[]{primary2, secondary2}) {
 				List<IAllele> alleles = new LinkedList<>();
 				if (allele1.isDominant() && !allele2.isDominant()) {

@@ -51,7 +51,7 @@ import binnie.core.Constants;
 import binnie.core.api.genetics.IBreedingSystem;
 import binnie.core.modules.BlankModule;
 import binnie.core.modules.BotanyModuleUIDs;
-import binnie.core.modules.ModuleManager;
+import binnie.core.modules.ModuleHelper;
 import binnie.core.util.RecipeUtil;
 import binnie.core.util.TileUtil;
 
@@ -84,7 +84,7 @@ public class ModuleFlowers extends BlankModule {
 		FlowerDefinition.preInitFlowers();
 
 		IBackpackInterface backpackInterface = BackpackManager.backpackInterface;
-		if (ModuleManager.isModuleEnabled("forestry", "backpacks")) {
+		if (ModuleHelper.isModuleEnabled("forestry", "backpacks")) {
 			Predicate<ItemStack> filter = BackpackManager.backpackInterface.createNaturalistBackpackFilter("rootFlowers");
 			BackpackDefinition definition = new BackpackDefinition(new Color(0xf6e83e), Color.WHITE, filter);
 			BackpackManager.backpackInterface.registerBackpackDefinition("botanist", definition);

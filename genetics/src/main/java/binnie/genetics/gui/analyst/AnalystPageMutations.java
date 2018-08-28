@@ -1,7 +1,6 @@
 package binnie.genetics.gui.analyst;
 
 import java.util.Collection;
-import java.util.List;
 
 import binnie.core.api.genetics.IBreedingSystem;
 import binnie.core.api.gui.IArea;
@@ -30,7 +29,6 @@ import binnie.core.gui.controls.core.Control;
 import binnie.core.gui.geometry.Point;
 import binnie.core.gui.geometry.TextJustification;
 import binnie.core.gui.minecraft.EnumColor;
-import binnie.core.gui.minecraft.Window;
 import binnie.core.gui.minecraft.control.ControlItemDisplay;
 import binnie.core.gui.renderer.RenderUtil;
 import binnie.core.integration.extrabees.ExtraBeesIntegration;
@@ -44,7 +42,6 @@ public class AnalystPageMutations extends Control implements ITitledWidget {
 		new ControlTextCentered(this, y, TextFormatting.UNDERLINE + getTitle()).setColor(getColor());
 		y += 18;
 		IBreedingSystem system = Binnie.GENETICS.getSystem(ind.getGenome().getSpeciesRoot());
-		List<IMutation> discovered = system.getDiscoveredMutations(Window.get(this).getWorld(), Window.get(this).getUsername());
 		IAlleleSpecies speciesCurrent = ind.getGenome().getPrimary();
 		Collection<IMutation> resultant = system.getResultantMutations(speciesCurrent);
 		Collection<IMutation> further = system.getFurtherMutations(speciesCurrent);
@@ -82,7 +79,7 @@ public class AnalystPageMutations extends Control implements ITitledWidget {
 			new ControlTextCentered(this, y, I18N.localise(AnalystConstants.MUTATIONS_KEY + ".resultant")).setColor(getColor());
 			y += 10;
 			for (IMutation mutation : resultant) {
-				float specificChance = getSpecificChance(ind, mutation, system);
+				float specificChance = getSpecificChance(mutation, system);
 				if (!isMaster && !isKnown(system, mutation)) {
 					new ControlUnknownMutation(this, ox + dx, y, 44, 16);
 				} else {
@@ -108,7 +105,7 @@ public class AnalystPageMutations extends Control implements ITitledWidget {
 			y += 10;
 			for (IMutation mutation : further) {
 				IAllele speciesComb = mutation.getPartner(speciesCurrent);
-				float specificChance = getSpecificChance(ind, mutation, system);
+				float specificChance = getSpecificChance(mutation, system);
 				if (!isMaster && !isKnown(system, mutation)) {
 					new ControlUnknownMutation(this, ox + dx, y, 44, 16);
 				} else {
@@ -131,7 +128,7 @@ public class AnalystPageMutations extends Control implements ITitledWidget {
 		return system.getDiscoveredMutations(getWindow().getWorld(), getWindow().getPlayer().getGameProfile()).contains(mutation);
 	}
 
-	private float getSpecificChance(IIndividual ind, IMutation mutation, IBreedingSystem system) {
+	private float getSpecificChance(IMutation mutation, IBreedingSystem system) {
 		return system.getChance(mutation, getWindow().getPlayer(), mutation.getAllele0(), mutation.getAllele1());
 	}
 

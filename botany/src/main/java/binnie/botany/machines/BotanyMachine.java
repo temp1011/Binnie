@@ -9,12 +9,13 @@ import binnie.core.Constants;
 import binnie.core.machines.IMachineType;
 import binnie.core.machines.MachinePackage;
 import binnie.core.modules.BotanyModuleUIDs;
-import binnie.core.modules.ModuleManager;
+import binnie.core.modules.ModuleHelper;
+
 import net.minecraft.item.ItemStack;
 
 public enum BotanyMachine implements IMachineType {
 	Tileworker(() -> {
-		if (ModuleManager.isModuleEnabled(Constants.BOTANY_MOD_ID, BotanyModuleUIDs.CERAMIC)) {
+		if (ModuleHelper.isModuleEnabled(Constants.BOTANY_MOD_ID, BotanyModuleUIDs.CERAMIC)) {
 			return new PackageDesigner(new Tileworker());
 		}
 		return null;

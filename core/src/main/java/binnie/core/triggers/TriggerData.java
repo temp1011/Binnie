@@ -1,5 +1,6 @@
 package binnie.core.triggers;
 
+// TODO - buildcraft?
 public class TriggerData //implements Map.Entry<ITriggerExternal, Boolean>
 {
 	/*private final ITriggerExternal key;

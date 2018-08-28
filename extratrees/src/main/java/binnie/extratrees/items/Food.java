@@ -7,6 +7,7 @@ import java.util.Locale;
 
 import net.minecraft.item.ItemStack;
 
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 import net.minecraftforge.fml.relauncher.Side;
@@ -437,16 +438,22 @@ public enum Food implements IItemMiscProvider {
     public void addInformation(final List<String> tooltip) {
     }
 
-    public void addJuice(final Juice juice, final int time, final int amount, final int mulch) {
-        RecipeManagers.squeezerManager.addRecipe(time, this.get(1), Fluids.JUICE.getFluid(amount), Mods.Forestry.stack("mulch"), mulch);
+    public void addJuice(Juice juice, int time, int amount, int mulch) {
+        RecipeManagers.squeezerManager.addRecipe(time, this.get(1), juice.get(amount), Mods.Forestry.stack("mulch"), mulch);
     }
 
-    public void addJuice(final int time, final int amount, final int mulch) {
-        RecipeManagers.squeezerManager.addRecipe(time, this.get(1), Fluids.JUICE.getFluid(amount), Mods.Forestry.stack("mulch"), mulch);
+    public void addJuice(int time, int amount, int mulch) {
+        FluidStack juice = Fluids.JUICE.getFluid(amount);
+        if (juice != null) {
+            RecipeManagers.squeezerManager.addRecipe(time, this.get(1), juice, Mods.Forestry.stack("mulch"), mulch);
+        }
     }
 
     public void addOil(final int time, final int amount, final int mulch) {
-        RecipeManagers.squeezerManager.addRecipe(time, this.get(1), Fluids.SEED_OIL.getFluid(amount), Mods.Forestry.stack("mulch"), mulch);
+        FluidStack seedOil = Fluids.SEED_OIL.getFluid(amount);
+        if (seedOil != null) {
+            RecipeManagers.squeezerManager.addRecipe(time, this.get(1), seedOil, Mods.Forestry.stack("mulch"), mulch);
+        }
     }
 
     protected Food registerCrop(final String string) {

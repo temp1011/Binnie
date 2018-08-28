@@ -19,7 +19,7 @@ import binnie.core.machines.MachinePackage;
 import binnie.core.machines.TileEntityMachine;
 import binnie.core.machines.component.IInteraction;
 import binnie.core.modules.ExtraTreesModuleUIDs;
-import binnie.core.modules.ModuleManager;
+import binnie.core.modules.ModuleHelper;
 import binnie.extratrees.ExtraTrees;
 import binnie.extratrees.gui.ExtraTreesGUID;
 import binnie.extratrees.machines.brewery.BreweryMachine;
@@ -33,13 +33,13 @@ import binnie.extratrees.modules.ModuleMachine;
 public enum ExtraTreeMachine implements IMachineType {
 	Lumbermill(LumbermillMachine::new),
 	Woodworker(() -> {
-		if (ModuleManager.isModuleEnabled(Constants.EXTRA_TREES_MOD_ID, ExtraTreesModuleUIDs.CARPENTRY)) {
+		if (ModuleHelper.isModuleEnabled(Constants.EXTRA_TREES_MOD_ID, ExtraTreesModuleUIDs.CARPENTRY)) {
 			return new PackageDesigner(DesignerType.Woodworker);
 		}
 		return null;
 	}),
 	Panelworker(() -> {
-		if (ModuleManager.isModuleEnabled(Constants.EXTRA_TREES_MOD_ID, ExtraTreesModuleUIDs.CARPENTRY)) {
+		if (ModuleHelper.isModuleEnabled(Constants.EXTRA_TREES_MOD_ID, ExtraTreesModuleUIDs.CARPENTRY)) {
 			return new PackageDesigner(DesignerType.Panelworker);
 		}
 		return null;
@@ -53,7 +53,7 @@ public enum ExtraTreeMachine implements IMachineType {
 	BREWERY(BreweryMachine::new),
 	Distillery(DistilleryMachine::new),
 	Glassworker(() -> {
-		if (ModuleManager.isModuleEnabled(Constants.EXTRA_TREES_MOD_ID, ExtraTreesModuleUIDs.CARPENTRY)) {
+		if (ModuleHelper.isModuleEnabled(Constants.EXTRA_TREES_MOD_ID, ExtraTreesModuleUIDs.CARPENTRY)) {
 			return new PackageDesigner(DesignerType.GlassWorker);
 		}
 		return null;

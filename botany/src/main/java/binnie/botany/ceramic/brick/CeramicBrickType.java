@@ -200,7 +200,6 @@ public enum CeramicBrickType implements IStringSerializable {
 						return ItemStack.EMPTY;
 					}
 				}
-				int color4 = type2.getColorSecond().ordinal();
 			}
 			if (colors[0] == -1 || colors[1] == -1) {
 				return ItemStack.EMPTY;

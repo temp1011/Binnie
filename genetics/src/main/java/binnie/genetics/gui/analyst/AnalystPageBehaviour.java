@@ -21,8 +21,6 @@ public class AnalystPageBehaviour<T extends IIndividual> extends Control impleme
 		setColor(0x660033);
 		int y = 4;
 		new ControlTextCentered(this, y, TextFormatting.UNDERLINE + getTitle()).setColor(getColor());
-		y += 12;
-		y = behaviourPlugin.addBehaviourPages(ind, this, y);
 	}
 
 	@Override

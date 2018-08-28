@@ -16,6 +16,7 @@ import forestry.api.apiculture.EnumBeeType;
 import forestry.api.apiculture.IBeeModelProvider;
 import forestry.api.core.IModelManager;
 
+//TODO - needed?
 public class BeeModelProvider implements IBeeModelProvider {
 	public static final BeeModelProvider instance = new BeeModelProvider();
 

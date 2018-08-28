@@ -53,21 +53,16 @@ public abstract class BreedingSystem implements IBreedingSystem, IItemStackRepre
 	protected BinnieSprite iconUndiscovered;
 	protected BinnieSprite iconDiscovered;
 	protected List<IAlleleSpecies> allActiveSpecies;
-	protected String currentEpithet;
 	private List<IClassification> allBranches;
-	private List<IAlleleSpecies> allSpecies;
 	private List<IMutation> allMutations;
 	private final ListMultiMap<IAlleleSpecies, IMutation> resultantMutations;
 	private final ListMultiMap<IAlleleSpecies, IMutation> furtherMutations;
 	private final ListMultiMap<IAlleleSpecies, IMutation> allResultantMutations;
 	private final ListMultiMap<IAlleleSpecies, IMutation> allFurtherMutations;
-	private int totalSecretBranchCount;
-	private int discoveredSecretBranchCount;
 
 	public BreedingSystem() {
 		this.allBranches = new ArrayList<>();
 		this.allActiveSpecies = new ArrayList<>();
-		this.allSpecies = new ArrayList<>();
 		this.allMutations = new ArrayList<>();
 		this.resultantMutations = new ListMultiMap<>();
 		this.furtherMutations = new ListMultiMap<>();
@@ -135,7 +130,6 @@ public abstract class BreedingSystem implements IBreedingSystem, IItemStackRepre
 
 	@Override
 	public void calculateAlleles(ISpeciesRoot speciesRoot) {
-		this.allSpecies = new ArrayList<>();
 		this.allActiveSpecies = new ArrayList<>();
 		this.resultantMutations.clear();
 		this.furtherMutations.clear();
@@ -146,8 +140,6 @@ public abstract class BreedingSystem implements IBreedingSystem, IItemStackRepre
 			String uid = allele.getUID();
 			IAllele[] template = speciesRoot.getTemplate(uid);
 			if (template != null) {
-				IAlleleSpecies species = (IAlleleSpecies) allele;
-				this.allSpecies.add(species);
 				if (isBlacklisted(allele) || uid.contains("speciesBotAlfheim")) {
 					continue;
 				}
@@ -364,7 +356,6 @@ public abstract class BreedingSystem implements IBreedingSystem, IItemStackRepre
 		this.discoveredSpeciesCount = 0;
 		this.totalSecretCount = 0;
 		this.discoveredSecretCount = 0;
-		final Collection<IAlleleSpecies> discoveredSpecies = this.getDiscoveredSpecies(tracker);
 		final Collection<IAlleleSpecies> allSpecies = this.getAllSpecies();
 		for (final IAlleleSpecies species : allSpecies) {
 			if (!this.isSecret(species)) {
@@ -394,16 +385,13 @@ public abstract class BreedingSystem implements IBreedingSystem, IItemStackRepre
 				}
 				++this.discoveredBranchCount;
 			} else {
-				++this.totalSecretBranchCount;
 				if (!discoveredBranches.contains(branch)) {
 					continue;
 				}
-				++this.discoveredSecretBranchCount;
 			}
 		}
 		this.discoveredSpeciesPercentage = this.discoveredSpeciesCount / this.totalSpeciesCount;
 		this.discoveredBranchPercentage = this.discoveredBranchCount / this.totalBranchCount;
-		final String epithet = this.getEpitome();
 		this.onSyncBreedingTracker(tracker);
 	}
 

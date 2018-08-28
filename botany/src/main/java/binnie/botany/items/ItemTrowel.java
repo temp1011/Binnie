@@ -37,7 +37,7 @@ import binnie.botany.api.gardening.IGardeningManager;
 import binnie.botany.core.BotanyCore;
 import binnie.core.modules.BotanyModuleUIDs;
 import binnie.botany.modules.ModuleFlowers;
-import binnie.core.modules.ModuleManager;
+import binnie.core.modules.ModuleHelper;
 
 public class ItemTrowel extends Item implements IItemModelRegister {
 	protected final ToolMaterial theToolMaterial;
@@ -68,7 +68,7 @@ public class ItemTrowel extends Item implements IItemModelRegister {
 		}
 
 		Block block = worldIn.getBlockState(pos).getBlock();
-		if (facing == EnumFacing.DOWN || (!worldIn.isAirBlock(pos.up()) && ModuleManager.isModuleEnabled(Constants.BOTANY_MOD_ID, BotanyModuleUIDs.FLOWERS) && worldIn.getBlockState(pos.up()).getBlock() != ModuleFlowers.flower) || (block != Blocks.GRASS && block != Blocks.DIRT && block != Blocks.GRASS_PATH)) {
+		if (facing == EnumFacing.DOWN || (!worldIn.isAirBlock(pos.up()) && ModuleHelper.isModuleEnabled(Constants.BOTANY_MOD_ID, BotanyModuleUIDs.FLOWERS) && worldIn.getBlockState(pos.up()).getBlock() != ModuleFlowers.flower) || (block != Blocks.GRASS && block != Blocks.DIRT && block != Blocks.GRASS_PATH)) {
 			return EnumActionResult.PASS;
 		}
 

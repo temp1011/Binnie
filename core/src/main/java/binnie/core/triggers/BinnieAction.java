@@ -1,5 +1,6 @@
 package binnie.core.triggers;
 
+//TODO - needed? will buildrcraft support be added?
 class BinnieAction //implements IActionExternal
 {
 	/*private static int incrementalID;

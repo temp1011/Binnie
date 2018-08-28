@@ -74,7 +74,7 @@ public class DistilleryRecipeManager implements IDistilleryManager {
 	@Override
 	public boolean removeRecipe(IDistilleryRecipe recipe) {
 		Fluid input = recipe.getInput().getFluid();
-		recipes.get(recipe.getLevel()).remove(input, recipe.getOutput());
+		recipes.get(recipe.getLevel()).remove(input, recipe);
 		return recipeList.remove(recipe);
 	}
 

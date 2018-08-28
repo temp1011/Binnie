@@ -1,5 +1,6 @@
 package binnie.extratrees.village;
 
+//TODO - villages?
 public class VillageHandlerExtraTrees //implements VillagerRegistry.IVillageCreationHandler
 {
     /*public static void registerVillageComponents() {

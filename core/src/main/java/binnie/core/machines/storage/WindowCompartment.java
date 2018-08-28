@@ -146,7 +146,6 @@ public class WindowCompartment extends WindowMachine implements IWindowAffectsSh
 			CraftGUIUtil.linkWidgets(tab2, compartmentPages);
 			x += 24;
 		}
-		x += 16;
 		this.setSize(new Point(Math.max(32 + compartmentWidth, 252), this.getHeight()));
 		controlCompartment.setPosition(new Point((this.getWidth() - controlCompartment.getWidth()) / 2, controlCompartment.getYPos()));
 		final ControlPlayerInventory invent = new ControlPlayerInventory(this, true);
@@ -202,7 +201,6 @@ public class WindowCompartment extends WindowMachine implements IWindowAffectsSh
 			color.addHelp("Colour Selector");
 			color.addHelp("Select a colour to highlight the current tab");
 		}
-		y2 += 20;
 		final ControlButton searchButton = new SearchButton(this, controlCompartment, compartmentWidth, compartmentPageHeight);
 		searchButton.addHelp("Search Button");
 		searchButton.addHelp("Clicking this will open the Search dialog. This allows you to search the inventory for specific items.");

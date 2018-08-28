@@ -140,8 +140,8 @@ public class ModelMultiFence extends ModelBlockCached<BlockMultiFence, ModelMult
 					maxX += SCALE * 0.9f;
 					minZ -= SCALE;
 					maxZ += SCALE;
-					float minY = 0.0f;
-					float maxY = 1.0f;
+					float minY;
+					float maxY;
 					if (type.getSize() != 1 && !type.isSolid()) {
 						minY = bottomBarMinY + 2.0f * SCALE;
 						maxY = topBarMaxY - 2.0f * SCALE;

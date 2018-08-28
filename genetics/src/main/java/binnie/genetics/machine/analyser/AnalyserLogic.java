@@ -11,7 +11,6 @@ import binnie.genetics.config.ConfigurationMain;
 import binnie.genetics.machine.GeneticsErrorCode;
 
 public class AnalyserLogic extends ComponentProcessSetCost implements IProcess {
-	private static final float DYE_PER_TICK = 0.002f;
 
 	public AnalyserLogic(final Machine machine) {
 		super(machine, ConfigurationMain.analyserEnergy, ConfigurationMain.analyserTime);

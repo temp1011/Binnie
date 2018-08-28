@@ -8,6 +8,8 @@ import java.util.Set;
 
 import net.minecraftforge.fml.common.discovery.ASMDataTable;
 
+import forestry.api.core.ForestryAPI;
+
 import binnie.core.util.Log;
 
 public class ModuleHelper {
@@ -36,5 +38,9 @@ public class ModuleHelper {
 		}
 
 		return modules;
+	}
+
+	public static boolean isModuleEnabled(String containerID, String moduleID) {
+		return ForestryAPI.moduleManager.isModuleEnabled(containerID, moduleID);
 	}
 }

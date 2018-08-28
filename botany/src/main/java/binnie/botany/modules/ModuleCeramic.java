@@ -32,7 +32,7 @@ import binnie.core.block.TileEntityMetadata;
 import binnie.core.item.ItemMisc;
 import binnie.core.modules.BlankModule;
 import binnie.core.modules.BotanyModuleUIDs;
-import binnie.core.modules.ModuleManager;
+import binnie.core.modules.ModuleHelper;
 import binnie.core.util.RecipeUtil;
 import binnie.design.items.ItemDesign;
 
@@ -80,7 +80,7 @@ public class ModuleCeramic extends BlankModule {
 		RecipeUtil recipeUtil = new RecipeUtil(Constants.BOTANY_MOD_ID);
 		ForgeRegistries.RECIPES.register(new CeramicTileRecipe());
 
-		if(ModuleManager.isModuleEnabled(Constants.BOTANY_MOD_ID, BotanyModuleUIDs.GARDENING)){
+		if(ModuleHelper.isModuleEnabled(Constants.BOTANY_MOD_ID, BotanyModuleUIDs.GARDENING)){
 			recipeUtil.addShapelessRecipe("mortar_old", CeramicItems.MORTAR.get(1), BotanyItems.MORTAR.get(1));
 		}
 

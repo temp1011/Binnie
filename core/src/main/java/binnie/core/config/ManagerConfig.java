@@ -4,21 +4,14 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 import binnie.core.util.Log;
-import net.minecraftforge.common.config.Configuration;
 
 import binnie.core.AbstractMod;
 import binnie.core.ManagerBase;
 
 public class ManagerConfig extends ManagerBase {
-	private final Map<Class<?>, Configuration> configurations;
-
-	public ManagerConfig() {
-		this.configurations = new LinkedHashMap<>();
-	}
+	public ManagerConfig() {}
 
 	public void registerConfiguration(final Class<?> cls, final AbstractMod mod) {
 		if (cls.isAnnotationPresent(ConfigFile.class)) {
@@ -48,6 +41,5 @@ public class ManagerConfig extends ManagerBase {
 			}
 		}
 		config.save();
-		this.configurations.put(cls, config);
 	}
 }

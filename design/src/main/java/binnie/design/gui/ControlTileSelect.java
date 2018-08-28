@@ -90,8 +90,6 @@ public class ControlTileSelect extends Control implements IControlValue<IDesign>
 
 	public void refresh(final String filterText) {
 		this.deleteAllChildren();
-		int cx = 2;
-		int cy = 2;
 		final Map<IDesignCategory, List<IDesign>> designs = new HashMap<>();
 		for (final IDesignCategory category : DesignAPI.manager.getAllDesignCategories()) {
 			designs.put(category, new ArrayList<>());
@@ -104,6 +102,8 @@ public class ControlTileSelect extends Control implements IControlValue<IDesign>
 				designs.remove(category);
 			}
 		}
+		int cx;
+		int cy = 2;
 		for (final IDesignCategory category : designs.keySet()) {
 			cx = 2;
 			new ControlText(this, new Point(cx, cy + 3), category.getName());

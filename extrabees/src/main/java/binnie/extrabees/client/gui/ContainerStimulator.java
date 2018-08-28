@@ -12,7 +12,6 @@ import binnie.extrabees.alveary.EnumAlvearyLogicType;
 public class ContainerStimulator extends AlvearyContainer {
 	private static final int ENERGY_PROPERTY = 9;
 
-	private final AlvearyLogicStimulator logic;
 	private final IEnergyStorage storage;
 	protected final int maxPower;
 	protected int power;
@@ -20,7 +19,6 @@ public class ContainerStimulator extends AlvearyContainer {
 	public ContainerStimulator(EntityPlayer player, AlvearyLogicStimulator logic) {
 		super(player, logic.getInventory(), EnumAlvearyLogicType.STIMULATOR, DEFAULT_DIMENSION);
 		this.storage = logic.getEnergyStorage();
-		this.logic = logic;
 		this.maxPower = storage.getMaxEnergyStored();
 	}
 

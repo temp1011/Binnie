@@ -23,7 +23,7 @@ import binnie.genetics.machine.ModuleMachine;
 
 public class PackageSplicer extends AdvGeneticMachine.PackageAdvGeneticBase implements IMachineInformation {
 	public PackageSplicer() {
-		super("splicer", 14819893, true);
+		super("splicer", 14819893);
 	}
 
 	@Override

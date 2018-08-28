@@ -27,7 +27,7 @@ public enum AdvGeneticMachine implements IMachineType {
 	}
 
 	public abstract static class PackageAdvGeneticBase extends GeneticMachine.PackageGeneticBase {
-		protected PackageAdvGeneticBase(final String uid, final int flashColour, final boolean powered) {
+		protected PackageAdvGeneticBase(final String uid, final int flashColour) {
 			super(uid, flashColour);
 		}
 	}

@@ -1,5 +1,7 @@
 package binnie.core.triggers;
 
+
+//TODO - buildcraft?
 public class TriggerPower {
 	/*public static TriggerData powerNone(final Object tile) {
 		return new TriggerData(BinnieTrigger.triggerPowerNone, getPercentage(tile) < 0.05000000074505806);

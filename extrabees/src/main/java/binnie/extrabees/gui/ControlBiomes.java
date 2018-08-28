@@ -67,7 +67,7 @@ public class ControlBiomes extends Control implements ITooltip {
 	}
 
 	public void setSpecies(IAlleleBeeSpecies species) {
-		tolerated.clear();
+		tolerated.clear();	//TODO - does this actually create/register anything? Doesn't seem to set anything in the class to me
 		IBeeGenome genome = BeeManager.beeRoot.templateAsGenome(BeeManager.beeRoot.getTemplate(species));
 		IBee bee = BeeManager.beeRoot.getBee(genome);
 	}

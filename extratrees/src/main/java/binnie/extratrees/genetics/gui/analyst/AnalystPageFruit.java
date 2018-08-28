@@ -18,7 +18,6 @@ import net.minecraft.util.text.TextFormatting;
 import forestry.api.arboriculture.EnumTreeChromosome;
 import forestry.api.arboriculture.IAlleleFruit;
 import forestry.api.arboriculture.ITree;
-import forestry.api.arboriculture.ITreeGenome;
 import forestry.api.genetics.IAllele;
 import forestry.api.genetics.IFruitFamily;
 import forestry.arboriculture.FruitProviderPod;
@@ -39,7 +38,6 @@ public class AnalystPageFruit extends Control implements ITitledWidget {
 	public AnalystPageFruit(IWidget parent, IArea area, ITree ind, IAnalystManager analystManager) {
 		super(parent, area);
 		setColor(13382400);
-		ITreeGenome genome = ind.getGenome();
 		int y = 4;
 		new ControlTextCentered(this, y, TextFormatting.UNDERLINE + getTitle()).setColor(getColor());
 		y += 12;
@@ -49,7 +47,6 @@ public class AnalystPageFruit extends Control implements ITitledWidget {
 		y += 20;
 		Collection<ItemStack> products = new UniqueItemStackSet();
 		Collection<ItemStack> specialties = new UniqueItemStackSet();
-		Collection<ItemStack> wiid = new UniqueItemStackSet();
 		products.addAll(ind.getProducts().keySet());
 		specialties.addAll(ind.getSpecialties().keySet());
 		try {

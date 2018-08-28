@@ -20,6 +20,7 @@ import binnie.extratrees.api.recipes.IFruitPressRecipe;
 import binnie.extratrees.api.recipes.ILumbermillManager;
 import binnie.extratrees.api.recipes.ILumbermillRecipe;
 
+// TODO - disabling machines/ disabled setup API?
 public class DummyManagers {
 
 	public static abstract class DummyCraftingManager<T extends IBinnieRecipe> implements ICraftingManager<T> {

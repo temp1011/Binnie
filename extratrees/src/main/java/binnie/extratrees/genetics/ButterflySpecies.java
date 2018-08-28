@@ -24,38 +24,38 @@ import forestry.lepidopterology.genetics.MothDefinition;
 
 import binnie.core.Constants;
 
+//TODO - can this be integrated into forestry?
 public enum ButterflySpecies implements IButterflyDefinition {
-	White_Admiral("White Admiral", "Limenitis camilla", 16448250),
-	Purple_Emperor("Purple Emperor", "Apatura iris", 4338374),
-	Red_Admiral("Red Admiral", "Vanessa atalanta", 15101764),
-	Painted_Lady("Painted Lady", "Vanessa cardui", 15573064),
-	Small_Tortoiseshell("Small Tortoiseshell", "Aglais urticae", 15365387),
-	Camberwell_Beauty("Camberwell Beauty", "Aglais antiopa", 9806540),
-	Peacock("Peacock", "Inachis io", 13842434),
-	Wall("Wall", "Lasiommata megera", 15707678),
-	Crimson_Rose("Crimson Rose", "Atrophaneura hector", 16736891),
-	Kaiser_I_Hind("Kaiser-i-Hind", "Teinopalpus imperialis", 7839808),
-	Golden_Birdwing("Golden Birdwing", "Troides aeacus", 16374814),
-	Marsh_Fritillary("Marsh Fritillary", "Euphydryas aurinia", 16747520),
-	Pearl_Bordered_Fritillary("Pearl-bordered Fritillary", "Boloria euphrosyne", 16747267),
-	Queen_Of_Spain_Fritillary("Queen of Spain Fritillary", "Issoria lathonia", 16765247),
-	Speckled_Wood("Speckled Wood", "Pararge aegeria", 16119949),
-	Scotch_Angus("Scotch Angus", "Erebia aethiops", 12735523),
-	Gatekeeper("Gatekeeper", "Pyronia tithonus", 16433962),
-	Meadow_Brown("Meadow Brown", "Maniola jurtina", 14914841),
-	Small_Heath("Small Heath", "Coenonympha pamphilus", 16754226),
-	Ringlet("Ringlet", "Aphantopus hyperantus", 9919799),
-	Monarch("Monarch", "Danaus plexippus", 16757254),
-	Marbled_White("Marbled White", "Melanargia galathea", 15527148);
+	White_Admiral("Limenitis camilla", 16448250),
+	Purple_Emperor("Apatura iris", 4338374),
+	Red_Admiral("Vanessa atalanta", 15101764),
+	Painted_Lady("Vanessa cardui", 15573064),
+	Small_Tortoiseshell("Aglais urticae", 15365387),
+	Camberwell_Beauty("Aglais antiopa", 9806540),
+	Peacock("Inachis io", 13842434),
+	Wall("Lasiommata megera", 15707678),
+	Crimson_Rose("Atrophaneura hector", 16736891),
+	Kaiser_I_Hind("Teinopalpus imperialis", 7839808),
+	Golden_Birdwing("Troides aeacus", 16374814),
+	Marsh_Fritillary("Euphydryas aurinia", 16747520),
+	Pearl_Bordered_Fritillary("Boloria euphrosyne", 16747267),
+	Queen_Of_Spain_Fritillary("Issoria lathonia", 16765247),
+	Speckled_Wood("Pararge aegeria", 16119949),
+	Scotch_Angus("Erebia aethiops", 12735523),
+	Gatekeeper("Pyronia tithonus", 16433962),
+	Meadow_Brown("Maniola jurtina", 14914841),
+	Small_Heath("Coenonympha pamphilus", 16754226),
+	Ringlet("Aphantopus hyperantus", 9919799),
+	Monarch("Danaus plexippus", 16757254),
+	Marbled_White("Melanargia galathea", 15527148);
 
 	public static final ButterflySpecies[] VALUES = values();
 
 	private final IAlleleButterflySpecies species;
-	private final IClassification branch;
 	private IAllele[] template;
 	private IButterflyGenome genome;
 
-	ButterflySpecies(String name, String scientific, int colour) {
+	ButterflySpecies(String scientific, int colour) {
 		String branchName = scientific.split(" ")[0].toLowerCase();
 		String binomial = scientific.split(" ")[1];
 
@@ -64,11 +64,9 @@ public enum ButterflySpecies implements IButterflyDefinition {
 		if (branch == null) {
 			branch = AlleleManager.alleleRegistry.createAndRegisterClassification(IClassification.EnumClassLevel.GENUS, branchUid, scientific);
 		}
-		this.branch = branch;
 
 		String uid = "extrabutterflies.species." + this.toString().toLowerCase().replace("_", "");
 		String unlocalizedName = uid + ".name";
-		IClassification parent = branch.getParent();
 		String unlocalizedDescription = "for.description." + uid;
 		String texture = "butterflies/" + toString().toLowerCase();
 

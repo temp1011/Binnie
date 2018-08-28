@@ -17,7 +17,7 @@ import binnie.core.Constants;
 import binnie.core.gui.IBinnieGUID;
 import binnie.core.modules.BlankModuleContainer;
 import binnie.core.modules.BotanyModuleUIDs;
-import binnie.core.modules.ModuleManager;
+import binnie.core.modules.ModuleHelper;
 import binnie.core.network.BinniePacketHandler;
 import binnie.core.network.IPacketID;
 import binnie.core.proxy.IProxyCore;
@@ -35,7 +35,6 @@ import binnie.genetics.api.analyst.IAnalystManager;
 			+      "after:" + Constants.DESIGN_MOD_ID + ';'
 )
 public class Botany extends BlankModuleContainer {
-	public static final float AGE_CHANCE = 0.2f;
 
 	@SuppressWarnings("NullableProblems")
 	@Mod.Instance(Constants.BOTANY_MOD_ID)
@@ -53,7 +52,7 @@ public class Botany extends BlankModuleContainer {
 			analystManager.registerAnalystPagePlugin(new FlowerAnalystPagePlugin());
 		}
 
-		if(ModuleManager.isModuleEnabled(Constants.BOTANY_MOD_ID, BotanyModuleUIDs.FLOWERS)) {
+		if(ModuleHelper.isModuleEnabled(Constants.BOTANY_MOD_ID, BotanyModuleUIDs.FLOWERS)) {
 			IAcclimatiserManager acclimatiserManager = GeneticsApi.acclimatiserManager;
 			if (acclimatiserManager != null) {
 				acclimatiserManager.addTolerance(EnumFlowerChromosome.HUMIDITY_TOLERANCE, acclimatiserManager.getHumidityToleranceType());

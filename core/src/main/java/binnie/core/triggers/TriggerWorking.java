@@ -1,5 +1,6 @@
 package binnie.core.triggers;
 
+//TODO - buildcraft?
 public class TriggerWorking {
 	/*public static TriggerData isNotWorking(final Object inventory) {
 		final IProcess process = Machine.getInterface(IProcess.class, inventory);

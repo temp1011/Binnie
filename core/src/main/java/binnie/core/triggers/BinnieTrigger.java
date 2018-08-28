@@ -1,5 +1,5 @@
 package binnie.core.triggers;
-
+//TODO - buildcraft support or remove?
 final class BinnieTrigger //implements ITriggerExternal
 {
 	/*private static int incrementalID;

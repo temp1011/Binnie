@@ -11,7 +11,6 @@ import net.minecraft.util.text.TextFormatting;
 
 import forestry.api.arboriculture.EnumTreeChromosome;
 import forestry.api.arboriculture.ITree;
-import forestry.api.genetics.IAlleleSpecies;
 import forestry.api.genetics.IIndividual;
 
 import binnie.core.api.gui.IWidget;
@@ -24,7 +23,6 @@ public class AnalystPageGrowth extends Control implements ITitledWidget {
 		super(parent, area);
 		setColor(3355443);
 		int y = 4;
-		IAlleleSpecies species = ind.getGenome().getPrimary();
 		new ControlTextCentered(this, y, TextFormatting.UNDERLINE + getTitle()).setColor(getColor());
 		y += 12;
 		if (ind instanceof ITree) {

@@ -47,7 +47,6 @@ public class ControlGeneScroll extends Control implements IControlValue<IBreedin
 		this.deleteAllChildren();
 		final GeneTracker tracker = GeneTracker.getTracker(Window.get(this).getWorld(), Window.get(this).getUsername());
 		final Map<IChromosomeType, List<IAllele>> genes = Binnie.GENETICS.getChromosomeMap(this.system.getSpeciesRoot());
-		int x = 0;
 		int y = 0;
 		final boolean master = ((WindowGeneBank) Window.get(this)).isMaster();
 		for (final Map.Entry<IChromosomeType, List<IAllele>> entry : genes.entrySet()) {
@@ -61,7 +60,7 @@ public class ControlGeneScroll extends Control implements IControlValue<IBreedin
 			if (discovered.size() == 0) {
 				continue;
 			}
-			x = 0;
+			int x = 0;
 			new ControlText(this, new Point(x, y), this.system.getChromosomeName(entry.getKey()));
 			y += 12;
 			for (final IAllele allele : discovered) {

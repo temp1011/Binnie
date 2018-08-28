@@ -31,7 +31,6 @@ public class AnalystPageDescription extends Control implements ITitledWidget {
 		int y = 4;
 		IAlleleSpecies species = ind.getGenome().getPrimary();
 		String branchBinomial = species.getBranch().getScientific();
-		String branchName = species.getBranch().getName();
 		String desc = species.getDescription();
 		StringBuilder descBody = new StringBuilder(TextFormatting.ITALIC.toString());
 		String descSig = "";
