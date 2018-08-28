@@ -1,5 +1,6 @@
 package binnie.extratrees.integration.jei.fruitpress;
 
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
 
@@ -18,7 +19,7 @@ public class FruitPressRecipeWrapper implements IRecipeWrapper {
 
 	@Override
 	public void getIngredients(IIngredients ingredients) {
-		ingredients.setInput(ItemStack.class, input);
-		ingredients.setOutput(FluidStack.class, output);
+		ingredients.setInput(VanillaTypes.ITEM, input);
+		ingredients.setOutput(VanillaTypes.FLUID, output);
 	}
 }

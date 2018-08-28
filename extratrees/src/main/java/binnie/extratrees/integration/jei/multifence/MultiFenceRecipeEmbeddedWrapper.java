@@ -12,6 +12,7 @@ import binnie.extratrees.wood.WoodManager;
 import binnie.extratrees.blocks.decor.FenceDescription;
 import binnie.extratrees.blocks.decor.FenceType;
 import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.wrapper.IShapedCraftingRecipeWrapper;
 
 public class MultiFenceRecipeEmbeddedWrapper implements IShapedCraftingRecipeWrapper {
@@ -74,8 +75,8 @@ public class MultiFenceRecipeEmbeddedWrapper implements IShapedCraftingRecipeWra
 		itemInputs.add(fences);
 		List<List<ItemStack>> itemOutputs = new ArrayList<>();
 		itemOutputs.add(outputFences);
-		ingredients.setOutputLists(ItemStack.class, itemOutputs);
-		ingredients.setInputLists(ItemStack.class, itemInputs);
+		ingredients.setOutputLists(VanillaTypes.ITEM, itemOutputs);
+		ingredients.setInputLists(VanillaTypes.ITEM, itemInputs);
 	}
 
 	@Override

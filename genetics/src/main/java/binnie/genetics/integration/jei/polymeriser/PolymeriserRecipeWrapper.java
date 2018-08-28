@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -27,18 +28,18 @@ public class PolymeriserRecipeWrapper implements IRecipeWrapper {
 		List<List<ItemStack>> inputs = new ArrayList<>();
 		inputs.add(Collections.singletonList(input));
 		inputs.add(Arrays.asList(new ItemStack(Items.GOLD_NUGGET), null));
-		ingredients.setInputLists(ItemStack.class, inputs);
+		ingredients.setInputLists(VanillaTypes.ITEM, inputs);
 
 		int processCount = input.getItemDamage();
 		int dnaAmount = (int) (PolymeriserLogic.getDNAPerProcess(input) * processCount);
 		int bacteriaAmount = (int) (PolymeriserLogic.getBacteriaPerProcess(input) * processCount);
-		ingredients.setInputs(FluidStack.class, Arrays.asList(
+		ingredients.setInputs(VanillaTypes.FLUID, Arrays.asList(
 			GeneticLiquid.RawDNA.get(dnaAmount),
 			GeneticLiquid.BacteriaPoly.get(bacteriaAmount)
 		));
 
 		ItemStack output = input.copy();
 		output.setItemDamage(0);
-		ingredients.setOutput(ItemStack.class, output);
+		ingredients.setOutput(VanillaTypes.ITEM, output);
 	}
 }

@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
@@ -43,11 +44,11 @@ public class DatabaseRecipeWrapper implements IRecipeWrapper {
 
 	@Override
 	public void getIngredients(IIngredients ingredients) {
-		ingredients.setInputs(ItemStack.class, Arrays.asList(
+		ingredients.setInputs(VanillaTypes.ITEM, Arrays.asList(
 			input,
 			new ItemStack(Genetics.items().database)
 		));
 
-		ingredients.setOutputLists(ItemStack.class, Collections.singletonList(outputs));
+		ingredients.setOutputLists(VanillaTypes.ITEM, Collections.singletonList(outputs));
 	}
 }

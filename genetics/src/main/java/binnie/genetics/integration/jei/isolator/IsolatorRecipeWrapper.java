@@ -20,7 +20,7 @@ import binnie.genetics.machine.isolator.IsolatorLogic;
 import mezz.jei.api.ingredients.IIngredients;
 
 public class IsolatorRecipeWrapper implements IRecipeWrapper {
-	private static final FluidStack ETHANOL = Fluids.BIO_ETHANOL.getFluid(IsolatorLogic.ETHANOL_PER_PROCESS);
+	private static final FluidStack ETHANOL = Fluids.BIO_ETHANOL.getFluid(IsolatorLogic.ETHANOL_PER_PROCESS);	//TODO - what if ethanol is disabled?
 	private static final ItemStack EMPTY_SEQUENCE = GeneticsItems.EmptySequencer.get(1);
 	private static final ItemStack ENZYME = GeneticsItems.Enzyme.get(1);
 

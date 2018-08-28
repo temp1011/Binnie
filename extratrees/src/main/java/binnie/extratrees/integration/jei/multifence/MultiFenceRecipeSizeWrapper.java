@@ -12,6 +12,7 @@ import binnie.extratrees.blocks.decor.MultiFenceRecipePattern;
 import binnie.extratrees.wood.WoodManager;
 import binnie.extratrees.wood.planks.IPlankType;
 import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 
 public class MultiFenceRecipeSizeWrapper implements IRecipeWrapper {
@@ -100,7 +101,7 @@ public class MultiFenceRecipeSizeWrapper implements IRecipeWrapper {
 			}
 			outputs.add(pattern.createFence(plankType, plankTypeSecond));
 		}
-		ingredients.setOutputLists(ItemStack.class, itemOutputs);
-		ingredients.setInputLists(ItemStack.class, itemInputs);
+		ingredients.setOutputLists(VanillaTypes.ITEM, itemOutputs);
+		ingredients.setInputLists(VanillaTypes.ITEM, itemInputs);
 	}
 }

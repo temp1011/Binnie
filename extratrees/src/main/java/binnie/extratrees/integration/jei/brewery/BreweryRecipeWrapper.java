@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
 
@@ -26,8 +27,8 @@ public class BreweryRecipeWrapper implements IRecipeWrapper {
 		inputs.add(recipe.getGrains());
 		inputs.add(Collections.singletonList(recipe.getYeast()));
 
-		ingredients.setInputLists(ItemStack.class, inputs);
-		ingredients.setInput(FluidStack.class, recipe.getInput());
-		ingredients.setOutput(FluidStack.class, recipe.getOutput());
+		ingredients.setInputLists(VanillaTypes.ITEM, inputs);
+		ingredients.setInput(VanillaTypes.FLUID, recipe.getInput());
+		ingredients.setOutput(VanillaTypes.FLUID, recipe.getOutput());
 	}
 }

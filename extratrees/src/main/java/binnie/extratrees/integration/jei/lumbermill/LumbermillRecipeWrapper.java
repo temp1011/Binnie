@@ -2,6 +2,7 @@ package binnie.extratrees.integration.jei.lumbermill;
 
 import java.util.Arrays;
 
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
 
@@ -25,10 +26,10 @@ public class LumbermillRecipeWrapper implements IRecipeWrapper {
 
 	@Override
 	public void getIngredients(IIngredients ingredients) {
-		ingredients.setInput(ItemStack.class, inputLog);
-		ingredients.setInput(FluidStack.class, WATER);
+		ingredients.setInput(VanillaTypes.ITEM, inputLog);
+		ingredients.setInput(VanillaTypes.FLUID, WATER);
 
-		ingredients.setOutputs(ItemStack.class, Arrays.asList(
+		ingredients.setOutputs(VanillaTypes.ITEM, Arrays.asList(
 			ExtraTreeItems.Bark.get(1),
 			outputPlanks,
 			ExtraTreeItems.SAWDUST.get(1)

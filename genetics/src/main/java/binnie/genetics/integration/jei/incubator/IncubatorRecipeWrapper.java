@@ -2,6 +2,7 @@ package binnie.genetics.integration.jei.incubator;
 
 import java.awt.Color;
 
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
@@ -23,16 +24,16 @@ public class IncubatorRecipeWrapper implements IRecipeWrapper {
 
 	@Override
 	public void getIngredients(IIngredients ingredients) {
-		ingredients.setInput(FluidStack.class, recipe.getInput());
+		ingredients.setInput(VanillaTypes.FLUID, recipe.getInput());
 		FluidStack fluidOutput = recipe.getOutput();
 		if (fluidOutput != null) {
-			ingredients.setOutput(FluidStack.class, fluidOutput);
+			ingredients.setOutput(VanillaTypes.FLUID, fluidOutput);
 		}
 
-		ingredients.setInput(ItemStack.class, recipe.getInputStack());
+		ingredients.setInput(VanillaTypes.ITEM, recipe.getInputStack());
 		ItemStack output = recipe.getExpectedOutput();
 		if (!output.isEmpty()) {
-			ingredients.setOutput(ItemStack.class, output);
+			ingredients.setOutput(VanillaTypes.ITEM, output);
 		}
 	}
 

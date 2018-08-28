@@ -1,5 +1,6 @@
 package binnie.extratrees.integration.jei.distillery;
 
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
 
@@ -26,8 +27,8 @@ public class DistilleryRecipeWrapper implements IRecipeWrapper {
 
 	@Override
 	public void getIngredients(IIngredients ingredients) {
-		ingredients.setInput(FluidStack.class, input);
-		ingredients.setOutput(FluidStack.class, output);
+		ingredients.setInput(VanillaTypes.FLUID, input);
+		ingredients.setOutput(VanillaTypes.FLUID, output);
 	}
 
 	@Override

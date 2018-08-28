@@ -4,10 +4,13 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 
 import net.minecraftforge.fml.relauncher.Side;
@@ -31,7 +34,12 @@ public class GenepoolRecipeWrapper implements IRecipeWrapper {
 		this.input = input;
 		int dnaAmount = GenepoolLogic.getDNAAmount(input);
 		this.dnaOutput = GeneticLiquid.RawDNA.get(dnaAmount);
-		this.ethanolInput = Fluids.BIO_ETHANOL.getFluid(Math.round(dnaAmount * 1.2f));
+		FluidStack ethanol = Fluids.BIO_ETHANOL.getFluid(Math.round(dnaAmount * 1.2f));
+		if(ethanol != null) {
+			this.ethanolInput = ethanol;
+		} else {
+			this.ethanolInput = new FluidStack(FluidRegistry.WATER, Fluid.BUCKET_VOLUME);	//TODO - correct behaviour when ethanol disabled?
+		}
 	}
 
 	@Override
@@ -39,10 +47,10 @@ public class GenepoolRecipeWrapper implements IRecipeWrapper {
 		List<ItemStack> inputs = new ArrayList<>();
 		inputs.add(ENZYME);
 		inputs.add(input);
-		ingredients.setInputs(ItemStack.class, inputs);
+		ingredients.setInputs(VanillaTypes.ITEM, inputs);
 
-		ingredients.setInput(FluidStack.class, ethanolInput);
-		ingredients.setOutput(FluidStack.class, dnaOutput);
+		ingredients.setInput(VanillaTypes.FLUID, ethanolInput);
+		ingredients.setOutput(VanillaTypes.FLUID, dnaOutput);
 	}
 
 	@Override

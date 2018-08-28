@@ -6,6 +6,7 @@ import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.Map;
 
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 
@@ -45,15 +46,15 @@ public class InoculatorRecipeWrapper implements IRecipeWrapper {
 
 	@Override
 	public void getIngredients(IIngredients ingredients) {
-		ingredients.setInputs(ItemStack.class, Arrays.asList(
+		ingredients.setInputs(VanillaTypes.ITEM, Arrays.asList(
 			inputSerum,
 			wildcardTarget
 		));
 
-		ingredients.setOutput(ItemStack.class, wildcardTarget);
+		ingredients.setOutput(VanillaTypes.ITEM, wildcardTarget);
 
 		if (!splicer) {
-			ingredients.setInput(FluidStack.class, BACTERIA_VECTOR);
+			ingredients.setInput(VanillaTypes.FLUID, BACTERIA_VECTOR);
 		}
 	}
 
