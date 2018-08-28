@@ -72,7 +72,7 @@ public class AlvearyLogicHatchery extends AlvearyLogic {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public GuiContainer getGui(@Nonnull EntityPlayer player, int data) {
-		return new GuiContainerAlvearyPart(getContainer(player, data));
+		return new GuiContainerAlvearyPart<>(getContainer(player, data));
 	}
 
 	@Nullable
