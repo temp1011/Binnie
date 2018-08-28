@@ -60,8 +60,8 @@ import binnie.core.triggers.ModuleTrigger;
 	name = "Binnie Core",
 	version = "@VERSION@",
 	acceptedMinecraftVersions = Constants.ACCEPTED_MINECRAFT_VERSIONS,
-	dependencies = "required-after:forge@[14.23.1.2594,);" +
-		"required-after:forestry@[5.7.0.214,);" +
+	dependencies = "required-after:forge@[14.23.4.2758,);" +
+		"required-after:forestry@[5.8.1.339,);" +
 		"after:jei@[4.7.8,);"
 )
 public final class BinnieCore extends AbstractMod {

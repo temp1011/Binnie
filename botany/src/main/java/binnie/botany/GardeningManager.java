@@ -213,7 +213,7 @@ public class GardeningManager implements IGardeningManager {
 		Biome biome = world.getBiome(pos);
 		EnumAcidity acidity = soil.getValue(BlockSoil.ACIDITY);
 		EnumMoisture moisture = soil.getValue(BlockSoil.MOISTURE);
-		EnumTemperature temperature = EnumTemperature.getFromValue(biome.getTemperature());
+		EnumTemperature temperature = EnumTemperature.getFromValue(biome.getDefaultTemperature());
 		return canTolerate(flower, acidity, moisture, temperature);
 	}
 

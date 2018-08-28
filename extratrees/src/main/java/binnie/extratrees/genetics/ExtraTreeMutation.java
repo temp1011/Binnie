@@ -244,7 +244,7 @@ public class ExtraTreeMutation implements ITreeMutation {
 	public float getChance(World world, BlockPos pos, IAlleleTreeSpecies allele0, IAlleleTreeSpecies allele1, ITreeGenome genome0, ITreeGenome genome1) {
 		final int processedChance = this.chance;
 		final Biome biome = world.getBiome(pos);//WorldChunkManager().getBiomeGenAt(x, z);
-		if (biome.getTemperature() < this.minTemperature || biome.getTemperature() > this.maxTemperature) {
+		if (biome.getDefaultTemperature() < this.minTemperature || biome.getDefaultTemperature() > this.maxTemperature) {
 			return 0.0f;
 		}
 		if (biome.getRainfall() < this.minRainfall || biome.getRainfall() > this.maxRainfall) {
