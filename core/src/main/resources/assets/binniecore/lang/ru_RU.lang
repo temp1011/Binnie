@@ -231,7 +231,6 @@ binniecore.gui.database.nodescription=Нет описания.
 
 binniecore.gui.database.mode.species=Вид
 binniecore.gui.database.mode.branches=Ветви
-binniecore.gui.database.mode.breeder=Селекционер
 binniecore.gui.database.species=Вид
 binniecore.gui.database.no.description=Нет описания.
 binniecore.gui.database.discovered=Обнаружено
@@ -278,7 +277,7 @@ binniecore.gui.fieldkit.paper=Бумага
 binniecore.gui.fieldkit.paper.no=Нет бумаги!
 binniecore.gui.fieldkit.individual=Индивидуальный
 
-< Descriptions used for effects in the registry >
+# Descriptions used for effects in the registry
 binniecore.allele.extrabees.effect.acid.desc=Растворяет камень и грязь
 binniecore.allele.forestry.effectAggressive.desc=Атакует игроков
 binniecore.allele.forestry.effectBeatific.desc=Медленно восстанавливает здоровье игроков
@@ -322,7 +321,7 @@ binniecore.allele.forestry.effectFestiveEaster.desc=Ничего не делае
 binniecore.gui.help.title=Help
 binniecore.gui.help.desc=Чтобы активировать подсказки, удерживайте %s и наведите указатель мыши на элементы управления
 
-< Names for slots when using help tooltip >
+# Names for slots when using help tooltip
 binniecore.gui.slot.slot=Слот
 binniecore.gui.slot.validated=%s слот
 binniecore.gui.slot.input=Входной слот

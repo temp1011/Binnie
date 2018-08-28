@@ -240,7 +240,6 @@ binniecore.gui.database.branch.name=%s 分支
 binniecore.gui.database.branch.apidae=蜂科： %s
 binniecore.gui.database.branch.discoveredBy=由 %s 发现
 binniecore.gui.database.branch.noDesc=没有描述。
-binniecore.gui.database.mode.breeder=变异
 binniecore.gui.database.discovered.discovered=已发现品种
 binniecore.gui.database.discovered.undiscovered=未发现品种
 binniecore.gui.database.control.undiscovered=尚未发现
@@ -270,7 +269,7 @@ binniecore.gui.fieldkit.paper=纸
 binniecore.gui.fieldkit.paper.no=没有纸！
 binniecore.gui.fieldkit.individual=个体
 
-< Descriptions used for effects in the registry >
+# Descriptions used for effects in the registry
 binniecore.allele.extrabees.effect.acid.desc=溶解石头和泥土
 binniecore.allele.forestry.effectAggressive.desc=攻击玩家
 binniecore.allele.forestry.effectBeatific.desc=缓慢回复玩家生命
@@ -314,7 +313,7 @@ binniecore.allele.forestry.effectFestiveEaster.desc=什么都不做
 binniecore.gui.help.title=帮助
 binniecore.gui.help.desc=要激活提示文本，请按住 %s 并将鼠标悬停在控件上。
 
-< Names for slots when using help tooltip >
+# Names for slots when using help tooltip
 binniecore.gui.slot.slot=格
 binniecore.gui.slot.validated=%s Slot
 binniecore.gui.slot.input=输入

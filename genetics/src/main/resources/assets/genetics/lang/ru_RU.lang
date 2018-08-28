@@ -146,7 +146,7 @@ genetics.gui.analyst.description.title=Описание
 genetics.gui.analyst.description.discovered=Обнаружено
 genetics.gui.analyst.description.complexity=Генетическая сложность
 
-//Цветы
+#Цветы
 genetics.gui.analyst.soil.title=Почва
 genetics.gui.analyst.soil.tolerance.moisture=Влагостойкость
 genetics.gui.analyst.soil.tolerance.ph=pH терпимость
@@ -158,10 +158,10 @@ genetics.gui.analyst.appearance.primary=Основной цвет лепестк
 genetics.gui.analyst.appearance.secondary=Вторичный цвет лепестка
 genetics.gui.analyst.appearance.stem=Цвет стебля
 
-//Бабочки
+#Бабочки
 genetics.gui.analyst.specimen.title=Образец
 
-//Пчелы
+#Пчелы
 genetics.gui.analyst.products.title=Производит
 genetics.gui.analyst.products.rate=Ценность
 genetics.gui.analyst.products.natural=Основная продукция
@@ -171,7 +171,7 @@ genetics.gui.analyst.products.centrifuges=Продукция в центрифу
 genetics.gui.analyst.products.squeezes=Продукция в соковыжималке
 genetics.gui.analyst.products.every=Каждый
 
-//Деревья
+#Деревья
 genetics.gui.analyst.wood.title=Древесина
 genetics.gui.analyst.wood.fireproof=Огнеупорный
 genetics.gui.analyst.wood.flammable=Легковоспламеняющийся
