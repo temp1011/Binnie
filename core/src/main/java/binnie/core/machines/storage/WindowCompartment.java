@@ -92,8 +92,7 @@ public class WindowCompartment extends WindowMachine implements IWindowAffectsSh
 		final int compartmentPageWidth = 16 + 18 * inv.getPageSize() / 5;
 		final int compartmentPageHeight = 106;
 		final int compartmentWidth = compartmentPageWidth + (doubleTabbed ? 48 : 24);
-		final int compartmentHeight = compartmentPageHeight;
-		final Control controlCompartment = new Control(this, x, y, compartmentWidth, compartmentHeight);
+		final Control controlCompartment = new Control(this, x, y, compartmentWidth, compartmentPageHeight);
 		final ControlTabBar<Integer> tab = new ControlTabBar<>(controlCompartment, 0, 0, 24, compartmentPageHeight, Alignment.LEFT, Arrays.asList(tabs1), (x1, y1, w, h, value) -> {
 			return new CompartmentTabIcon(this, x1, y1, w, h, value);
 		});
@@ -159,10 +158,9 @@ public class WindowCompartment extends WindowMachine implements IWindowAffectsSh
 		final Panel tabPropertyPanel = new Panel(slide, 16, 8, 112, 76, MinecraftGUI.PanelType.GRAY);
 		int y2 = 4;
 		new ControlText(tabPropertyPanel, new Point(4, y2), "Tab Name:");
-		final Panel parent = tabPropertyPanel;
 		final int x2 = 4;
 		y2 += 12;
-		(this.tabName = new ControlTextEdit(parent, x2, y2, 104, 12)).addEventHandler(EventTextEdit.class, EventHandlerOrigin.SELF, this.tabName, event -> {
+		(this.tabName = new ControlTextEdit(tabPropertyPanel, x2, y2, 104, 12)).addEventHandler(EventTextEdit.class, EventHandlerOrigin.SELF, this.tabName, event -> {
 			final binnie.core.machines.storage.CompartmentTab currentTab = WindowCompartment.this.getCurrentTab();
 			currentTab.setName(event.getValue());
 			final NBTTagCompound nbt = new NBTTagCompound();

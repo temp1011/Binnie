@@ -64,9 +64,7 @@ public class PackageSplicer extends AdvGeneticMachine.PackageAdvGeneticBase impl
 			if (!stack.isEmpty()) {
 				IMachine machine1 = transfer.getMachine();
 				MachineUtil machineUtil = machine1.getMachineUtil();
-				if (!machineUtil.getStack(Splicer.SLOT_SERUM_VIAL).isEmpty() && machine1.getInterface(SplicerLogic.class).isValidSerum() != null) {
-					return true;
-				}
+				return !machineUtil.getStack(Splicer.SLOT_SERUM_VIAL).isEmpty() && machine1.getInterface(SplicerLogic.class).isValidSerum() != null;
 			}
 			return false;
 		});

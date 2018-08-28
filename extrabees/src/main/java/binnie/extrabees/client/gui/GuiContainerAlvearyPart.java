@@ -15,7 +15,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class GuiContainerAlvearyPart<C extends AlvearyContainer> extends GuiContainer {
 
 	protected final C container;
-	private int titleS = -1;
 
 	public GuiContainerAlvearyPart(C container) {
 		super(container);

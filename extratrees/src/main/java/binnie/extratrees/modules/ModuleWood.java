@@ -296,7 +296,7 @@ public class ModuleWood extends BlankModule {
 		ExtraTrees.proxy.registerBlock(blockMultiFence, new ItemMetadata(blockMultiFence));
 		
 		leavesDefault = BlockETDefaultLeaves.create();
-		Map speciesToLeavesDefault = ModuleArboriculture.getBlocks().speciesToLeavesDefault;
+		Map<String, IBlockState> speciesToLeavesDefault = ModuleArboriculture.getBlocks().speciesToLeavesDefault;
 		for (BlockETDefaultLeaves leaves : leavesDefault) {
 			ExtraTrees.proxy.registerBlock(leaves, new ItemBlockLeaves(leaves));
 			registerOreDictWildcard(OreDictUtil.TREE_LEAVES, leaves);

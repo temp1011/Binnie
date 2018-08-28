@@ -102,14 +102,14 @@ public class ItemHoneyCrystal extends Item implements IElectricItem, IItemHudInf
 					}
 				}
 				
-				if(transferred && !world.isRemote) {
+				if(transferred) {
 					player.openContainer.detectAndSendChanges();
 				}
 			}
 			
-			return new ActionResult(EnumActionResult.SUCCESS, stack);
+			return new ActionResult<>(EnumActionResult.SUCCESS, stack);
 		} else {
-			return new ActionResult(EnumActionResult.PASS, stack);
+			return new ActionResult<>(EnumActionResult.PASS, stack);
 		}
 	}
 	
@@ -140,7 +140,7 @@ public class ItemHoneyCrystal extends Item implements IElectricItem, IItemHudInf
 	@Override
 	@Optional.Method(modid = "ic2")
 	public List<String> getHudInfo(ItemStack stack, boolean advanced) {
-		List<String> info = new LinkedList();
+		List<String> info = new LinkedList<>();
 		info.add(ElectricItem.manager.getToolTip(stack));
 		return info;
 	}

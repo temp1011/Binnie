@@ -68,9 +68,7 @@ public class PackageInoculator extends GeneticMachine.PackageGeneticBase impleme
 			if (!stack.isEmpty()) {
 				IMachine machine1 = transfer.getMachine();
 				MachineUtil machineUtil = machine1.getMachineUtil();
-				if (!machineUtil.getStack(Inoculator.SLOT_SERUM_VIAL).isEmpty() && machine1.getInterface(InoculatorLogic.class).isValidSerum() != null) {
-					return true;
-				}
+				return !machineUtil.getStack(Inoculator.SLOT_SERUM_VIAL).isEmpty() && machine1.getInterface(InoculatorLogic.class).isValidSerum() != null;
 			}
 			return false;
 		});
