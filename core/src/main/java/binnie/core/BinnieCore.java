@@ -160,6 +160,7 @@ public final class BinnieCore extends AbstractMod {
 	@Mod.EventHandler
 	public void preInit(final FMLPreInitializationEvent evt) {
 		MinecraftForge.EVENT_BUS.register(Binnie.LIQUID);
+		MinecraftForge.EVENT_BUS.register(ModuleContainer.class);
 		Binnie.CONFIGURATION.registerConfiguration(ConfigurationMods.class, this);
 		for(IModuleContainer container : ForestryAPI.moduleManager.getContainers()){
 			if(!(container instanceof ModuleContainer)){

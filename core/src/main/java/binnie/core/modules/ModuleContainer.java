@@ -14,6 +14,7 @@ import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import forestry.api.modules.ForestryModule;
 import forestry.api.modules.IForestryModule;
@@ -78,6 +79,7 @@ public class ModuleContainer implements forestry.api.modules.IModuleContainer {
 		}
 	}
 
+	@SubscribeEvent
 	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
 		for(IConfigHandler handler : configHandlers){
 			handler.loadConfig();
