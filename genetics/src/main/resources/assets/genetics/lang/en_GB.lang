@@ -14,7 +14,10 @@ genetics.errors.analyser.no.item.desc=No item to analyse
 genetics.machine.lab_machine.incubator=Incubator
 genetics.machine.lab_machine.incubator.info=The Incubator combines liquids and items and allows them to sit at an ideal temperature to encourage bacterial growth.
 
-genetics.machine.lab_machine.acclimatiser=Acclimatiser
-genetics.machine.lab_machine.acclimatiser.info=The Acclimatiser uses acclimatising items to adjust the temperature and humidity tolerance of individuals.
+genetics.machine.lab_machine.acclimatiser=Acclimatizer
+genetics.machine.lab_machine.acclimatiser.info=The Acclimatizer uses acclimatizing items to adjust the temperature and humidity tolerance of individuals.
+genetics.errors.acclimatiser.no.item.desc=No Acclimatising Items
+genetics.errors.acclimatiser.can.not.acclimatise.desc=Cannot Acclimatise this individual with these items
+genetics.machine.lab_machine.acclimatiser.tooltips.slots.acclimatising=Acclimatising Items
 
 genetics.machine.adv_machine.splicer.info=The Splicer is an incredibly powerful machine to insert genes into individuals. It is fast, but needs insane amounts of power.
