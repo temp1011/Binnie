@@ -1,5 +1,6 @@
 package binnie.genetics.machine.acclimatiser;
 
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 import binnie.core.machines.inventory.SlotValidator;
@@ -12,11 +13,14 @@ public class ValidatorAcclimatiserItem extends SlotValidator {
 	}
 
 	@Override
-	public boolean isValid(final ItemStack stack) {
-		for (final IToleranceType type : Acclimatiser.getToleranceTypes()) {
+	public boolean isValid(ItemStack stack) {
+		for (IToleranceType type : Acclimatiser.getToleranceTypes()) {
 			if (type.hasEffect(stack)) {
 				return true;
 			}
+		}
+		if (stack.getItem() == Items.BUCKET) { //ugly hack, TODO - improve to general fluid items
+			return true;
 		}
 		return false;
 	}

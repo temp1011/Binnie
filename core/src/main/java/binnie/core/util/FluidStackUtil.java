@@ -14,7 +14,7 @@ import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 
 public class FluidStackUtil {
 
-	public static String toString(FluidStack fluidStack) {
+	public static String toString(@Nullable FluidStack fluidStack) {
 		if (fluidStack == null) {
 			return "null";
 		}

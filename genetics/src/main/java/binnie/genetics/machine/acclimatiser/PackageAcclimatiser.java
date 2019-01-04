@@ -1,5 +1,6 @@
 package binnie.genetics.machine.acclimatiser;
 
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.NonNullList;
@@ -24,7 +25,7 @@ public class PackageAcclimatiser extends GeneticMachine.PackageGeneticBase imple
 	@Override
 	public void createMachine(final Machine machine) {
 		new ComponentGeneticGUI(machine, GeneticsGUI.ACCLIMATISER);
-		final ComponentInventorySlots inventory = new ComponentInventorySlots(machine);
+		ComponentInventorySlots inventory = new ComponentInventorySlots(machine);
 		InventorySlot slotTarget = inventory.addSlot(Acclimatiser.SLOT_TARGET, getSlotRL("process"));
 		slotTarget.setValidator(new SlotValidator.Individual());
 		slotTarget.forbidInteraction();
@@ -43,6 +44,11 @@ public class PackageAcclimatiser extends GeneticMachine.PackageGeneticBase imple
 		transfer.addRestock(Acclimatiser.SLOT_RESERVE, Acclimatiser.SLOT_TARGET, 1);
 		transfer.addStorage(Acclimatiser.SLOT_TARGET, Acclimatiser.SLOT_DRONE, (stack) -> {
 			NonNullList<ItemStack> stacks = machine.getMachineUtil().getNonEmptyStacks(Acclimatiser.SLOT_ACCLIMATISER);
+			for (ItemStack stack1 : stacks) { //TODO - very ugly
+				if (stack1.getItem() == Items.BUCKET) {
+					return false;
+				}
+			}
 			return !Acclimatiser.canAcclimatise(stack, stacks);
 		});
 		new ComponentPowerReceptor(machine, 5000);

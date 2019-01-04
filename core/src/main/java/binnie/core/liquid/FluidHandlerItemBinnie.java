@@ -1,5 +1,7 @@
 package binnie.core.liquid;
 
+import javax.annotation.Nullable;
+
 import net.minecraft.item.ItemStack;
 
 import net.minecraftforge.fluids.Fluid;
@@ -14,7 +16,7 @@ public class FluidHandlerItemBinnie extends FluidHandlerItemStackSimple {
 		this.containerType = containerType;
 	}
 
-	private boolean contentsAllowed(FluidStack fluidStack) {
+	private boolean contentsAllowed(@Nullable FluidStack fluidStack) {
 		if (fluidStack == null) {
 			return false;
 		}

@@ -134,6 +134,7 @@ public class Acclimatiser {
 			addTolerance(EnumButterflyChromosome.HUMIDITY_TOLERANCE, ToleranceType.Humidity);
 			addTolerance(EnumButterflyChromosome.TEMPERATURE_TOLERANCE, ToleranceType.Temperature);
 		}
+		//TODO - more generic water/lava support?
 		addTemperatureItem(new ItemStack(Items.BLAZE_POWDER), 0.5f);
 		addTemperatureItem(new ItemStack(Items.BLAZE_ROD), 0.75f);
 		addTemperatureItem(new ItemStack(Items.LAVA_BUCKET), 0.75f);

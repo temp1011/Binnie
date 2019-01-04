@@ -1,9 +1,11 @@
 package binnie.genetics.machine.acclimatiser;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.item.ItemStack;
+
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidUtil;
+import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 
 import binnie.core.machines.IMachine;
 import binnie.core.machines.MachineUtil;
@@ -52,25 +54,34 @@ public class AcclimatiserLogic extends ComponentProcessIndefinate {
 	}
 
 	protected void attemptAcclimatisation() {
-		final List<ItemStack> acclms = new ArrayList<>();
-		final MachineUtil machineUtil = getUtil();
+		MachineUtil machineUtil = getUtil();
 		ItemStack target = machineUtil.getStack(Acclimatiser.SLOT_TARGET);
 		if (target.isEmpty()) {
 			return;
 		}
 
-		for (final ItemStack s : machineUtil.getNonEmptyStacks(Acclimatiser.SLOT_ACCLIMATISER)) {
-			if (Acclimatiser.canAcclimatise(target, s)) {
-				acclms.add(s);
-			}
-		}
-		final ItemStack acc = acclms.get(machineUtil.getRandom().nextInt(acclms.size()));
-		final ItemStack acclimed = Acclimatiser.acclimatise(target, acc);
-		machineUtil.setStack(Acclimatiser.SLOT_TARGET, acclimed);
-		for (final int i : Acclimatiser.SLOT_ACCLIMATISER) {
-			ItemStack stack = machineUtil.getStack(i);
-			if (!stack.isEmpty() && stack.isItemEqual(acc)) {
-				machineUtil.decreaseStack(i, 1);
+		for (int i : Acclimatiser.SLOT_ACCLIMATISER) {
+			ItemStack s = machineUtil.getStack(i);
+			if (!s.isEmpty() && Acclimatiser.canAcclimatise(target, s)) {
+				ItemStack toUse = s.copy();
+
+
+				IFluidHandlerItem handler = FluidUtil.getFluidHandler(s);
+				if (handler != null) {
+					FluidStack sim = handler.drain(Fluid.BUCKET_VOLUME, false);
+					if (sim == null || sim.amount != Fluid.BUCKET_VOLUME) {
+						continue;
+					} else {
+						handler.drain(Fluid.BUCKET_VOLUME, true);
+						machineUtil.setStack(i, handler.getContainer());
+					}
+				} else {
+					machineUtil.decreaseStack(i, 1);
+				}
+
+
+				ItemStack acclimed = Acclimatiser.acclimatise(toUse, s);
+				machineUtil.setStack(Acclimatiser.SLOT_TARGET, acclimed);
 				break;
 			}
 		}
