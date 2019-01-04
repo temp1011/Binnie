@@ -9,6 +9,7 @@ import forestry.api.apiculture.IBee;
 import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAllele;
 import forestry.api.genetics.IChromosome;
+import forestry.api.genetics.IGenome;
 import forestry.api.genetics.IIndividual;
 import forestry.api.genetics.ISpeciesRoot;
 
@@ -22,17 +23,16 @@ public class Splicer {
 	public static final int SLOT_TARGET = 9;
 	public static final int[] SLOT_FINISHED = new int[]{10, 11, 12, 13};
 
+	/**
+	 * TODO - expose something in forestry to make this easier?
+	 */
 	public static void setGene(IGene gene, ItemStack target, boolean setPrimary, boolean setSecondary) {
 		int chromosomeID = gene.getChromosome().ordinal();
 		Class<? extends IAllele> cls = gene.getChromosome().getAlleleClass();
 		if (!cls.isInstance(gene.getAllele())) {
 			return;
 		}
-		NBTTagCompound targetTag = target.getTagCompound();
-		NBTTagCompound mate = null;
-		if (targetTag != null && targetTag.hasKey("Mate")) {
-			mate = targetTag.getCompoundTag("Mate").copy();
-		}
+
 		ISpeciesRoot speciesRoot = AlleleManager.alleleRegistry.getSpeciesRoot(target);
 		Preconditions.checkNotNull(speciesRoot);
 		IIndividual original = speciesRoot.getMember(target);
@@ -40,6 +40,7 @@ public class Splicer {
 		IChromosome[] chromosomes = original.getGenome().getChromosomes();
 		IAllele[] primaryAlleles = new IAllele[chromosomes.length];
 		IAllele[] secondaryAlleles = new IAllele[chromosomes.length];
+
 		for (int i = 0; i < chromosomes.length; i++) {
 			IChromosome chromosome = chromosomes[i];
 			if (i == chromosomeID && setPrimary) {
@@ -53,20 +54,15 @@ public class Splicer {
 				secondaryAlleles[i] = chromosome.getSecondaryAllele();
 			}
 		}
+
 		IIndividual individual = speciesRoot.templateAsIndividual(primaryAlleles, secondaryAlleles);
-		if (original.isAnalyzed()) {
-			individual.analyze();
-		}
-		if (original instanceof IBee) {
-			IBee individualBee = (IBee) individual;
-			IBee originalBee = (IBee) original;
-			individualBee.setIsNatural(originalBee.isNatural());
-		}
-		NBTTagCompound nbt = new NBTTagCompound();
-		individual.writeToNBT(nbt);
-		if (mate != null) {
-			nbt.setTag("Mate", mate);
-		}
-		target.setTagCompound(nbt);
+		IGenome newGenome = individual.getGenome();
+
+		NBTTagCompound tag = target.getTagCompound();
+		NBTTagCompound newGenomeTag = newGenome.writeToNBT(new NBTTagCompound());
+
+		tag.setTag("Genome", newGenomeTag);
+		target.setTagCompound(tag);
+
 	}
 }
