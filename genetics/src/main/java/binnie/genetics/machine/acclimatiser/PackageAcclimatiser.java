@@ -44,12 +44,14 @@ public class PackageAcclimatiser extends GeneticMachine.PackageGeneticBase imple
 		transfer.addRestock(Acclimatiser.SLOT_RESERVE, Acclimatiser.SLOT_TARGET, 1);
 		transfer.addStorage(Acclimatiser.SLOT_TARGET, Acclimatiser.SLOT_DRONE, (stack) -> {
 			NonNullList<ItemStack> stacks = machine.getMachineUtil().getNonEmptyStacks(Acclimatiser.SLOT_ACCLIMATISER);
-			for (ItemStack stack1 : stacks) { //TODO - very ugly
-				if (stack1.getItem() == Items.BUCKET) {
-					return false;
+			if(!Acclimatiser.canAcclimatise(stack, stacks)) {
+				for (ItemStack stack1 : stacks) { //TODO - very ugly
+					if (stack1.getItem() == Items.BUCKET) {
+						return false;
+					}
 				}
 			}
-			return !Acclimatiser.canAcclimatise(stack, stacks);
+			return true;
 		});
 		new ComponentPowerReceptor(machine, 5000);
 		new AcclimatiserLogic(machine);
